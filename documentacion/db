@@ -1,0 +1,25 @@
+| Entidad      | Atributos principales                                                      | Descripción                              |
+| ------------ | -------------------------------------------------------------------------- | ---------------------------------------- |
+| **User**     | id (PK), username, email, password                                         | Usuarios registrados                     |
+| **Question** | id (PK), title, body, user\_id (FK)                                        | Preguntas hechas por usuarios            |
+| **Answer**   | id (PK), body, user\_id (FK), question\_id (FK)                            | Respuestas a preguntas                   |
+| **Comment**  | id (PK), body, user\_id (FK), question\_id (FK), answer\_id (FK, nullable) | Comentarios sobre preguntas o respuestas |
+Relaciones
+Un User puede crear muchas Questions (1 a N)
+
+Un User puede crear muchas Answers (1 a N)
+
+Un User puede crear muchos Comments (1 a N)
+
+Una Question puede tener muchas Answers (1 a N)
+
+Una Question puede tener muchos Comments (1 a N)
+
+Una Answer puede tener muchos Comments (1 a N)
+
+User (1) ------ (N) Question
+User (1) ------ (N) Answer
+User (1) ------ (N) Comment
+Question (1) ---- (N) Answer
+Question (1) ---- (N) Comment
+Answer (1) ------ (N) Comment
